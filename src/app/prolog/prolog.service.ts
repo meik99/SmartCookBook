@@ -56,13 +56,11 @@ ${new AlternativesKnowledgeBase().getKnowledgeBase()}
   private getAnswer(list, done): any {
     this._session.answer({
       success: (answer) => {
-        console.log(answer);
         const result = list;
         result.push(answer);
         this.getAnswer(result, done);
       },
       fail: () => {
-        console.log('failure');
         done(list);
       },
       error: (err) => {

@@ -2,6 +2,10 @@
   <div class="card-body">
     <div class="card-text">
       {{ ingredient | ingredientAnswer | titlecase }}
+      <span class="badge badge-secondary float-right" (click)="toggleShowAlternatives()">Show Alternatives</span>
+    </div>
+    <div class="card-text" *ngFor="let alt of alternatives">
+      {{alt | json}}
     </div>
   </div>
 </div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12">
+      <h1>Ingredients</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" *ngIf="error">
+      {{ error | json }}
+    </div>
+  </div>
+  <div class="row mt-4" >
+    <div class="col-4 mt-1" *ngFor="let ingredient of ingredients">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-text">
+            {{ ingredient | ingredientAnswer | titlecase }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,3 +2,39 @@
   border-radius: 0;
   box-shadow: 1px 1px 5px -2px #000000;
 }
+
+.bg-dark{
+  background-color: black !important;
+}
+
+.form-control {
+  border: none;
+  outline: none;
+  border-radius: 0;
+  border-bottom: 1px solid #aaa;
+  box-shadow: none;
+}
+
+.form-control:active {
+  border: none;
+  outline: none;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  box-shadow: none;
+}
+
+.form-control:hover {
+  border: none;
+  outline: none;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border: none;
+  outline: none;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  box-shadow: none;
+}

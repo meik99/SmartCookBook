@@ -41,15 +41,9 @@
       Query: {{formatQuestion()}}
     </div>
   </div>
-  <div class="row mt-4">
+  <div class="row mt-4" *ngIf="formatSearchTerm().length > 0">
     <div class="col-4" *ngFor="let recipe of results">
       <app-recipe-card [recipe]="recipe"></app-recipe-card>
     </div>
   </div>
 </div>
-<!--<button type="button"
-class="btn btn-lg btn-danger"
-data-toggle="popover"
- title="Popover title"
- data-content="And here's some amazing content. It's very engaging. Right?">
- Click to toggle popover</button>-->

@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12">
+      <h1>Search Recipes</h1>
+    </div>
+  </div>
+  <div class="row" *ngIf="error">
+    <div class="col-12">
+      {{ error | json }}
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="search">
+          Search
+          <span class="badge badge-primary badge-pill"
+                data-toggle="popover"
+                title="Search recipes"
+                data-content="Enter your fridge's content and find recipes you can make with it. Write the list of ingredients comma separated. E.g.: Minced Meat, Chicken Stock, etc...">?</span>
+        </label>
+        <input
+          placeholder="Basel, Red Wine, Minced Meat"
+          class="form-control"
+          type="text"
+          name="search"
+          id="search"
+          [(ngModel)]="searchTerm">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" *ngIf="formatSearchTerm().length > 0">
+      Search terms:
+      <span class="badge badge-primary badge-pill mr-1"
+            *ngFor="let term of formatSearchTerm()">{{term}}</span>
+    </div>
+  </div>
+  <div class="row" *ngIf="formatSearchTerm().length > 0">
+    <div class="col-12 text-muted">
+      Query: {{formatQuestion()}}
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-4" *ngFor="let recipe of results">
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+  </div>
+</div>
+<!--<button type="button"
+class="btn btn-lg btn-danger"
+data-toggle="popover"
+ title="Popover title"
+ data-content="And here's some amazing content. It's very engaging. Right?">
+ Click to toggle popover</button>-->

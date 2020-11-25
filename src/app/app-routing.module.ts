@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {IngredientListComponent} from './ingredient-list/ingredient-list.component';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
+import {SearchComponent} from './search/search.component';
 
 const routes: Routes = [
   {
@@ -13,9 +14,13 @@ const routes: Routes = [
     component: RecipeListComponent
   },
   {
+    path: 'search',
+    component: SearchComponent
+  },
+  {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/recipes'
+    redirectTo: '/search'
   }
 ];
 

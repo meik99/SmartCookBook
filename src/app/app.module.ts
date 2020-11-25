@@ -12,6 +12,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RecipeNamePipe } from './recipe-list/recipe-answer/recipe-name.pipe';
 import { IngredientItemComponent } from './ingredient-item/ingredient-item.component';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
+import { SearchComponent } from './search/search.component';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { RecipeItemComponent } from './recipe-item/recipe-item.component';
     NavbarComponent,
     RecipeNamePipe,
     IngredientItemComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    SearchComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,

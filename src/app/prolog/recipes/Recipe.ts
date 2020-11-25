@@ -53,5 +53,15 @@ export const RecipeList = [
     name: 'spaghetti_bolognese',
     ingredients: [MincedMeat, WhiteOnion, TomatoConcentrate, ChickenStock],
     optionalIngredients: [Basel]
+  }),
+  new Recipe({
+    name: 'roasted_onions',
+    ingredients: [WhiteOnion],
+    optionalIngredients: []
+  }),
+  new Recipe({
+    name: 'soup',
+    ingredients: [ChickenStock],
+    optionalIngredients: []
   })
 ];

@@ -26,19 +26,4 @@ export class RecipeListComponent implements OnInit {
       .catch(err => this.error = err);
   }
 
-  resolveList(prologList: any): string[] {
-    if (!prologList || !prologList.args) {
-      return [];
-    }
-
-    const result = [];
-    let current = prologList.args;
-
-    while (current && current.length >= 2) {
-      result.push(current[0].id);
-      current = current[1].args;
-    }
-
-    return result;
-  }
 }

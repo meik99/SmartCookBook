@@ -17,9 +17,11 @@ export class PrologService {
 
   private buildKnowledgeBase(): any {
     this._session.consult(`
-      ${new IngredientKnowledgeBase().getKnowledgeBase()}
-      ${new RecipeKnowledgeBase().getKnowledgeBase()}
-      ${new AlternativesKnowledgeBase().getKnowledgeBase()}
+:- use_module(library(lists)).
+
+${new IngredientKnowledgeBase().getKnowledgeBase()}
+${new RecipeKnowledgeBase().getKnowledgeBase()}
+${new AlternativesKnowledgeBase().getKnowledgeBase()}
     `, {
       success: () => console.log('successfully loaded program'),
       error: (err) => console.log(err)
@@ -30,16 +32,22 @@ export class PrologService {
   answerQuestion(question: string): Promise<any[]> {
     return new Promise<any[]>((resolve, reject) => {
       this._session.query(question, {
-        success: (goal) => this.getAnswer([], (answers, err) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(answers);
-          }
-        }),
+        success: (goal) => {
+          this.getAnswer([], (answers, err) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(answers);
+            }
+          });
+        },
         error: (err) => reject(err)
       });
     });
+  }
+
+  format(answer: any): any {
+    return this._session.format_answer(answer);
   }
 
   private getAnswer(list, done): any {
@@ -51,6 +59,7 @@ export class PrologService {
         this.getAnswer(result, done);
       },
       fail: () => {
+        console.log('failure');
         done(list);
       },
       error: (err) => {
@@ -58,6 +67,7 @@ export class PrologService {
         done(list, err);
       },
       limit: () => {
+        console.log('limit reached');
         done(list);
       }
     });

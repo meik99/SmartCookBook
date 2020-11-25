@@ -3,11 +3,16 @@ export const RecipeRules = `
 member(X,[X|_]).
 member(X,[_|Xs]) :- member(X,Xs).
 
-subset(X, []).
-subset(X, [X|_]).
-subset(X, [Y | Tail]) :- member(Y, X), subset(X, Tail).
+ingredientMember(X, Y) :- member(X, Y).
+ingredientMember(X, Y) :- isAlternativeTo(Alt, X), member(Alt, Y).
 
-isRecipe(X, Y, A, B) :- recipe(X, A, B), subset(A, Y).
+ingredientSubset(X, []).
+ingredientSubset(X, [X|_]).
+ingredientSubset(X, [Y | Tail]) :- ingredientMember(Y, X), ingredientSubset(X, Tail).
+
+
 isRecipe(X, Y, Z) :- recipe(X, Y, Z).
-
+isRecipe(X, Y, A, B) :- recipe(X, A, B), ingredientSubset(A, Y).
 `;
+
+// ingredientSubset(X, [Y | Tail]) :- isAlternative(Y, Alt), member(Alt, X), ingredientSubset(X, Tail).

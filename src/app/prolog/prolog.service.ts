@@ -17,8 +17,6 @@ export class PrologService {
 
   private buildKnowledgeBase(): any {
     this._session.consult(`
-:- use_module(library(lists)).
-
 ${new IngredientKnowledgeBase().getKnowledgeBase()}
 ${new RecipeKnowledgeBase().getKnowledgeBase()}
 ${new AlternativesKnowledgeBase().getKnowledgeBase()}

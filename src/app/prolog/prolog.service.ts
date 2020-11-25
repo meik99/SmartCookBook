@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import * as prolog from 'tau-prolog';
 import {IngredientKnowledgeBase} from './ingredients/IngredientKnowledgeBase';
 import {RecipeKnowledgeBase} from './recipes/RecipeKnowledgeBase';
+import {AlternativesKnowledgeBase} from './alternatives/AlternativesKnowledgeBase';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class PrologService {
     this._session.consult(`
       ${new IngredientKnowledgeBase().getKnowledgeBase()}
       ${new RecipeKnowledgeBase().getKnowledgeBase()}
+      ${new AlternativesKnowledgeBase().getKnowledgeBase()}
     `, {
       success: () => console.log('successfully loaded program'),
       error: (err) => console.log(err)

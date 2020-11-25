@@ -1,4 +1,8 @@
-import {Basel, ChickenStock, MincedMeat, TomatoConcentrate, WhiteOnion} from '../ingredients/Ingredients';
+import {TomatoConcentrate} from '../ingredients/Ingredients';
+import {MincedMeat} from '../ingredients/Meats';
+import {WhiteOnion} from '../ingredients/Vegetables';
+import {ChickenStock} from '../ingredients/Stocks';
+import {Basel} from '../ingredients/Spices';
 
 export class Recipe {
   private _name: string;

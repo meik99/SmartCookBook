@@ -1,1 +1,38 @@
-<p>recipe-list works!</p>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12">
+      <h1>Recipes</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" *ngIf="error">
+      {{ error | json }}
+    </div>
+  </div>
+  <div class="row mt-4" >
+    <div class="col-4 mt-1" *ngFor="let recipe of recipes">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <h4>{{ recipe.links.Name.id | recipeName | titlecase }}</h4>
+          </div>
+          <div class="card-text">
+            Ingredients:
+            <ul class="list-group">
+              <app-recipe-item [ingredients]="resolveList(recipe.links.Ingredients)"></app-recipe-item>
+<!--              <li class="list-group-item" *ngFor="let ingredient of resolveList(recipe.links.Ingredients)">-->
+<!--                {{ ingredient | recipeName | titlecase }}-->
+<!--              </li>-->
+            </ul>
+          </div>
+          <div class="card-text mt-4">
+            Optional Ingredients:
+            <ul class="list-group">
+              <app-recipe-item [ingredients]="resolveList(recipe.links.OptionalIngredients)"></app-recipe-item>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

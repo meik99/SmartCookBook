@@ -1,0 +1,16 @@
+<div class="row" *ngIf="ingredient">
+  <div class="col-12">
+    <span>{{ ingredient | recipeName | titlecase }}</span>
+    <span class="badge badge-secondary float-right" (click)="toggleShowAlternatives(ingredient)">Show Alternatives</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <span *ngIf="noAlternatives && showAlternatives" class="float-right text-muted">No alternatives found</span>
+    <ul class="list-group" *ngIf="alternatives.length > 0">
+      <li class="list-group-item" *ngFor="let alternative of alternatives">
+        {{alternative | ingredientAnswer | titlecase}}
+      </li>
+    </ul>
+  </div>
+</div>

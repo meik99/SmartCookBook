@@ -9,6 +9,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {IngredientAnswerPipe} from './ingredient-list/ingredient-answer/ingredient-answer.pipe';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RecipeNamePipe } from './recipe-list/recipe-answer/recipe-name.pipe';
+import { IngredientItemComponent } from './ingredient-item/ingredient-item.component';
+import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     IngredientListComponent,
     IngredientAnswerPipe,
     RecipeListComponent,
-    NavbarComponent
+    NavbarComponent,
+    RecipeNamePipe,
+    IngredientItemComponent,
+    RecipeItemComponent
   ],
   imports: [
     BrowserModule,

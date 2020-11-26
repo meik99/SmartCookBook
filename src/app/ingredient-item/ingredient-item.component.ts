@@ -33,10 +33,24 @@ export class IngredientItemComponent implements OnInit {
           console.log(result);
           this.alternatives = result;
           this.noAlternatives = result.length <= 0;
+          this.makeAlternativesDistinct();
         })
         .catch(err => {
           console.log(err);
         });
     }
+  }
+
+  private makeAlternativesDistinct(): void {
+    const distinctAlternatives = [];
+
+    for (const item of this.alternatives) {
+      const existingItem = distinctAlternatives.find(other => other.links.X.id === item.links.X.id);
+      if (!existingItem && item.links.X.id !== this.ingredient) {
+        distinctAlternatives.push(item);
+      }
+    }
+
+    this.alternatives = distinctAlternatives;
   }
 }

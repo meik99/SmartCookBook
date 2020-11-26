@@ -32,8 +32,8 @@ export class SearchComponent implements OnInit {
     if (this.formatSearchTerm().length > 0) {
       this.prologService.answerQuestion(this.formatQuestion())
         .then(result => {
-          console.log(result);
           this.results = result;
+          this.makeResultsDistinct();
         })
         .catch(err => {
           console.log(err);
@@ -57,5 +57,18 @@ export class SearchComponent implements OnInit {
     }
 
     return words;
+  }
+
+  private makeResultsDistinct(): void {
+    const distinctRecipes = [];
+
+    for (const item of this.results) {
+      const existingItem = distinctRecipes.find(other => other.links.Name.id === item.links.Name.id);
+      if (!existingItem) {
+        distinctRecipes.push(item);
+      }
+    }
+
+    this.results = distinctRecipes;
   }
 }

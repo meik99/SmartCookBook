@@ -1,7 +1,7 @@
 import {TomatoConcentrate} from '../ingredients/Ingredients';
 import {MincedMeat} from '../ingredients/Meats';
 import {WhiteOnion} from '../ingredients/Vegetables';
-import {ChickenStock} from '../ingredients/Stocks';
+import {BeefStock, ChickenStock} from '../ingredients/Stocks';
 import {Basel} from '../ingredients/Spices';
 
 export class Recipe {
@@ -61,7 +61,7 @@ export const RecipeList = [
   }),
   new Recipe({
     name: 'soup',
-    ingredients: [ChickenStock],
+    ingredients: [BeefStock],
     optionalIngredients: []
   })
 ];

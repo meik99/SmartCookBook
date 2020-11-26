@@ -21,7 +21,6 @@ export class RecipeListComponent implements OnInit {
       .answerQuestion('recipe(Name, Ingredients, OptionalIngredients).')
       .then(result => {
         this.recipes = result;
-        console.log(result);
       })
       .catch(err => this.error = err);
   }

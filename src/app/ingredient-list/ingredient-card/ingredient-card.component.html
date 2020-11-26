@@ -4,8 +4,17 @@
       {{ ingredient | ingredientAnswer | titlecase }}
       <span class="badge badge-secondary float-right" (click)="toggleShowAlternatives()">Show Alternatives</span>
     </div>
-    <div class="card-text" *ngFor="let alt of alternatives">
-      {{alt | json}}
-    </div>
+    <span *ngIf="showAlternatives">
+      <div class="card-text" *ngIf="alternatives.length > 0">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let alt of alternatives">
+            {{alt | ingredientAnswer | titlecase}}
+          </li>
+        </ul>
+      </div>
+      <div class="card-text text-muted float-right" *ngIf="alternatives.length <= 0">
+        No alternatives found
+      </div>
+    </span>
   </div>
 </div>

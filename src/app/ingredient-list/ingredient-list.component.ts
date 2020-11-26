@@ -18,8 +18,19 @@ export class IngredientListComponent implements OnInit {
 
   ngOnInit(): void {
     this.prologService.answerQuestion('ingredient(X).')
-      .then(result => this.ingredients = result)
+      .then(result => {
+        result = result.sort((a, b) => a.links.X.id.localeCompare(b.links.X.id));
+        this.ingredients = result;
+      })
       .catch(err => this.error = err);
   }
 
+  onDelete(): any {
+    this.prologService.answerQuestion('ingredient(X).')
+      .then(result => {
+        result = result.sort((a, b) => a.links.X.id.localeCompare(b.links.X.id));
+        this.ingredients = result;
+      })
+      .catch(err => this.error = err);
+  }
 }

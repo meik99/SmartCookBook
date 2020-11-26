@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PrologService} from '../../prolog/prolog.service';
 
 @Component({
@@ -7,7 +7,8 @@ import {PrologService} from '../../prolog/prolog.service';
   styleUrls: ['./ingredient-card.component.scss']
 })
 export class IngredientCardComponent implements OnInit {
-
+  @Output()
+  deleteIngredient = new EventEmitter<void>();
 
   private _ingredient: any = null;
   alternatives: any[] = [];
@@ -55,5 +56,12 @@ export class IngredientCardComponent implements OnInit {
     }
 
     this.alternatives = distinctAlternatives;
+  }
+
+  delete(): void {
+    const name = this.ingredient.links.X.id;
+    this.prologService.answerQuestion(`retract(ingredient(${name})).`)
+      .then(result => this.deleteIngredient.emit())
+      .catch(err => console.log(err));
   }
 }

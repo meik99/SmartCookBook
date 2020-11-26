@@ -16,3 +16,9 @@ isRecipe(X, Y, A, B) :- recipe(X, A, B), ingredientSubset(A, Y).
 `;
 
 // ingredientSubset(X, [Y | Tail]) :- isAlternative(Y, Alt), member(Alt, X), ingredientSubset(X, Tail).
+// recipe(spaghetti_bolognese, [minced_meat, white_onion], [basel]).
+// isRecipe(X, [white_onion], A, B).
+// X = spaghetti_bolognese
+// A = [minced_meat, white_onion]
+// B = [basel]
+

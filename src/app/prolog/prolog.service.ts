@@ -19,9 +19,13 @@ export class PrologService {
 
   private buildKnowledgeBase(): any {
     this._session.consult(`
+:- use_module(library(lists)).
+:- dynamic(ingredient/1).
+:- dynamic(isAlternative/2).
 ${new IngredientKnowledgeBase().getKnowledgeBase()}
 ${new RecipeKnowledgeBase().getKnowledgeBase()}
 ${new AlternativesKnowledgeBase().getKnowledgeBase()}
+
     `, {
       success: () => console.log('successfully loaded program'),
       error: (err) => console.log(err)

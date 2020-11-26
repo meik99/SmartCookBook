@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-body">
     <div class="card-text">
+      <img src="assets/bootstrap-icons-1.1.0/trash.svg" (click)="delete()">
       {{ ingredient | ingredientAnswer | titlecase }}
       <span class="badge badge-secondary float-right" (click)="toggleShowAlternatives()">Show Alternatives</span>
     </div>

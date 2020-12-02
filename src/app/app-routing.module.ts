@@ -4,6 +4,7 @@ import {IngredientListComponent} from './ingredient-list/ingredient-list.compone
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {SearchComponent} from './search/search.component';
 import {IngredientFormComponent} from './ingredient-list/ingredient-form/ingredient-form.component';
+import {RecipeFormComponent} from './recipe-list/recipe-form/recipe-form.component';
 
 const routes: Routes = [
   {
@@ -11,12 +12,16 @@ const routes: Routes = [
     component: IngredientListComponent
   },
   {
+    path: 'ingredients/add',
+    component: IngredientFormComponent
+  },
+  {
     path: 'recipes',
     component: RecipeListComponent
   },
   {
-    path: 'ingredients/add',
-    component: IngredientFormComponent
+    path: 'recipes/add',
+    component: RecipeFormComponent
   },
   {
     path: 'search',

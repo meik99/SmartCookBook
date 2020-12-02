@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-3 mt-4" *ngFor="let item of ingredients">
+    <div class="card" [class.bg-success]="item.selected" [class.text-white]="item.selected" (click)="selectItem(item)">
+      <div class="card-body">
+        <div class="card-text">
+          {{item.ingredient | ingredientAnswer | titlecase}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

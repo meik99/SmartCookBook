@@ -16,6 +16,8 @@ import { SearchComponent } from './search/search.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { IngredientCardComponent } from './ingredient-list/ingredient-card/ingredient-card.component';
 import { IngredientFormComponent } from './ingredient-list/ingredient-form/ingredient-form.component';
+import { RecipeFormComponent } from './recipe-list/recipe-form/recipe-form.component';
+import { IngredientSelectorComponent } from './ingredient-selector/ingredient-selector.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { IngredientFormComponent } from './ingredient-list/ingredient-form/ingre
     SearchComponent,
     RecipeCardComponent,
     IngredientCardComponent,
-    IngredientFormComponent
+    IngredientFormComponent,
+    RecipeFormComponent,
+    IngredientSelectorComponent
   ],
   imports: [
     BrowserModule,

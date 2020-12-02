@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-1 mt-1">
+      <a class="btn btn-primary" routerLink="/recipes">Back</a>
+    </div>
+    <div class="col-11">
+      <h1>Recipes - Add</h1>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="name">Recipe Name:</label>
+        <input class="form-control" type="text" name="name" id="name"
+               placeholder="Swaghetti Yolonese"
+               [(ngModel)]="recipe.name">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12">
+          Select Ingredients
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12">
+          Select Ingredients
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

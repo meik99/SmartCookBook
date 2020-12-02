@@ -62,4 +62,8 @@ export class IngredientFormComponent implements OnInit {
         .catch(err => console.log(err));
     }
   }
+
+  onIngredientSelected(ingredients): void {
+    this.ingredients = ingredients;
+  }
 }

@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {PrologService} from '../prolog/prolog.service';
 
 @Component({
   selector: 'app-recipe-card',
@@ -10,7 +11,13 @@ export class RecipeCardComponent implements OnInit {
   @Input()
   recipe: any = null;
 
-  constructor() { }
+  @Output()
+  deleteRecipe = new EventEmitter<void>();
+
+  constructor(
+    private prologService: PrologService
+  ) {
+  }
 
   ngOnInit(): void {
   }
@@ -32,4 +39,13 @@ export class RecipeCardComponent implements OnInit {
     return result;
   }
 
+  delete(): void {
+    const name = this.recipe.links.Name.id;
+    const ingredients = this.recipe.links.Ingredients;
+    this.prologService.answerQuestion(`retractRecipe(${name}).`)
+      .then(result => {
+        this.deleteRecipe.emit();
+      })
+      .catch(err => console.log(err));
+  }
 }

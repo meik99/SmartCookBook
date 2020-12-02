@@ -22,9 +22,13 @@ export class PrologService {
 :- use_module(library(lists)).
 :- dynamic(ingredient/1).
 :- dynamic(isAlternative/2).
+:- dynamic(recipe/3).
+
 ${new IngredientKnowledgeBase().getKnowledgeBase()}
 ${new RecipeKnowledgeBase().getKnowledgeBase()}
 ${new AlternativesKnowledgeBase().getKnowledgeBase()}
+
+retractRecipe(X) :- retract(recipe(X, Y, Z)), recipe(X, Y, Z).
 
     `, {
       success: () => console.log('successfully loaded program'),

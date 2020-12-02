@@ -2,6 +2,8 @@
   <div class="card-body">
     <div class="card-title">
       <h4>{{ recipe.links.Name.id | recipeName | titlecase }}</h4>
+
+      <button class="btn btn-sm btn-danger" (click)="delete()">Delete</button>
     </div>
     <div class="card-text">
       Ingredients:

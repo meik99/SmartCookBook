@@ -22,17 +22,18 @@
       Select alternatives:
     </div>
   </div>
-  <div class="row">
-    <div class="col-3 mt-4" *ngFor="let item of ingredients">
-      <div class="card" [class.bg-success]="item.selected" [class.text-white]="item.selected" (click)="item.selected = !item.selected">
-        <div class="card-body">
-          <div class="card-text">
-            {{item.ingredient | ingredientAnswer | titlecase}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--  <div class="row">-->
+<!--    <div class="col-3 mt-4" *ngFor="let item of ingredients">-->
+<!--      <div class="card" [class.bg-success]="item.selected" [class.text-white]="item.selected" (click)="item.selected = !item.selected">-->
+<!--        <div class="card-body">-->
+<!--          <div class="card-text">-->
+<!--            {{item.ingredient | ingredientAnswer | titlecase}}-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+  <app-ingredient-selector (ingredientSelected)="onIngredientSelected($event)"></app-ingredient-selector>
   <div class="row mt-4">
     <div class="col-2">
       <button class="btn btn-danger" routerLink="/ingredients">Cancel</button>

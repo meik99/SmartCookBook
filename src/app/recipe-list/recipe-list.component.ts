@@ -25,4 +25,12 @@ export class RecipeListComponent implements OnInit {
       .catch(err => this.error = err);
   }
 
+  onDeleteRecipe(): void {
+    this.prologService
+      .answerQuestion('recipe(Name, Ingredients, OptionalIngredients).')
+      .then(result => {
+        this.recipes = result;
+      })
+      .catch(err => this.error = err);
+  }
 }

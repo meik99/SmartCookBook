@@ -10,8 +10,6 @@ import {AlternativesKnowledgeBase} from './alternatives/AlternativesKnowledgeBas
 export class PrologService {
 
   private _session = prolog.create();
-  private questions: string[] = [];
-  private working = false;
 
   constructor() {
     this.buildKnowledgeBase();
@@ -37,10 +35,8 @@ retractRecipe(X) :- retract(recipe(X, Y, Z)), recipe(X, Y, Z).
   }
 
 
-  async answerQuestion(question: string): Promise<any[]> {
-    return await new Promise<any[]>((resolve, reject) => {
-      this.questions.push(question);
-
+  answerQuestion(question: string): Promise<any[]> {
+    return new Promise<any[]>((resolve, reject) => {
       this._session.query(question, {
         success: (goal) => {
           this.getAnswer([], (answers, err) => {

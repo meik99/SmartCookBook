@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PrologService} from '../prolog/prolog.service';
 
 @Component({
@@ -9,14 +9,22 @@ import {PrologService} from '../prolog/prolog.service';
 export class IngredientSelectorComponent implements OnInit {
   ingredients = [];
 
+  @Input()
+  size = 'large';
+
   @Output()
   ingredientSelected = new EventEmitter<any[]>();
 
   constructor(
     private prologService: PrologService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
+    this.loadIngredients();
+  }
+
+  loadIngredients(): void {
     this.prologService.answerQuestion(`ingredient(X).`)
       .then(result => {
         result = result.sort((a, b) => a.links.X.id.localeCompare(b.links.X.id));

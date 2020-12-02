@@ -28,6 +28,7 @@
     "@angular/router": "~10.1.6",
     "readline-sync": "^1.4.10",
     "rxjs": "~6.6.0",
+    "synchronized-promise": "^0.3.1",
     "tau-prolog": "^0.3.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

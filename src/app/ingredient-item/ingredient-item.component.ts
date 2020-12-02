@@ -30,7 +30,6 @@ export class IngredientItemComponent implements OnInit {
     } else {
       this.prologService.answerQuestion(`isAlternativeTo(${ingredient}, X).`)
         .then(result => {
-          console.log(result);
           this.alternatives = result;
           this.noAlternatives = result.length <= 0;
           this.makeAlternativesDistinct();

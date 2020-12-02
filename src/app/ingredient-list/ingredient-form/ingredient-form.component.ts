@@ -19,17 +19,7 @@ export class IngredientFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.prologService.answerQuestion(`ingredient(X).`)
-      .then(result => {
-        result = result.sort((a, b) => a.links.X.id.localeCompare(b.links.X.id));
-        result.forEach(item => {
-          this.ingredients.push({
-            selected: false,
-            ingredient: item
-          });
-        });
-      })
-      .catch(err => console.log(err));
+
   }
 
   save(): void {
@@ -54,10 +44,11 @@ export class IngredientFormComponent implements OnInit {
         .then(result => console.log(result))
         .catch(err => console.log(err));
     } else {
-      const alternative = alternatives.pop();
+      const alternativesList = alternatives;
+      const alternative = alternativesList.pop();
       this.prologService.answerQuestion(`asserta(isAlternative(${this.ingredient.name.trim().replace(/[\ -]+/g, '_').toLowerCase()}, ${alternative.links.X.id})).`)
         .then(result => {
-          this.addAlternative(alternatives);
+          this.addAlternative(alternativesList);
         })
         .catch(err => console.log(err));
     }

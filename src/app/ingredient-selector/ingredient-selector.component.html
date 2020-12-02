@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-3 mt-4" *ngFor="let item of ingredients">
+  <div class="mt-4" *ngFor="let item of ingredients" [class.col-3]="size=='large'" [class.col-5]="size=='small'">
     <div class="card" [class.bg-success]="item.selected" [class.text-white]="item.selected" (click)="selectItem(item)">
       <div class="card-body">
         <div class="card-text">

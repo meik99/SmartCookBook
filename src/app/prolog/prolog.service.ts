@@ -17,7 +17,6 @@ export class PrologService {
 
   private buildKnowledgeBase(): any {
     this._session.consult(`
-:- use_module(library(lists)).
 :- dynamic(ingredient/1).
 :- dynamic(isAlternative/2).
 :- dynamic(recipe/3).

@@ -4,7 +4,7 @@ member(X,[_|Xs]) :- member(X,Xs).
 ingredientMember(X, Y) :- member(X, Y).
 ingredientMember(X, Y) :- isAlternativeTo(Alt, X), member(Alt, Y).
 
-ingredientSubset(X, []).
+ingredientSubset(_, []).
 ingredientSubset(X, [X|_]).
 ingredientSubset(X, [Y | Tail]) :- ingredientMember(Y, X), ingredientSubset(X, Tail).
 

@@ -7,7 +7,7 @@ import {PrologService} from '../prolog/prolog.service';
   styleUrls: ['./knowledge-base.component.scss']
 })
 export class KnowledgeBaseComponent implements OnInit {
-  private knowledgeBase = '';
+  knowledgeBase = '';
 
   constructor(
     private prologService: PrologService

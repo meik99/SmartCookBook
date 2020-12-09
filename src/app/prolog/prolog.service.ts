@@ -10,24 +10,23 @@ import {AlternativesKnowledgeBase} from './alternatives/AlternativesKnowledgeBas
 export class PrologService {
 
   private _session = prolog.create();
+  private _knowledgeBase = '';
 
   constructor() {
     this.buildKnowledgeBase();
   }
 
   private buildKnowledgeBase(): any {
-    this._session.consult(`
-:- dynamic(ingredient/1).
+    this._knowledgeBase = `:- dynamic(ingredient/1).
 :- dynamic(isAlternative/2).
 :- dynamic(recipe/3).
 
 ${new IngredientKnowledgeBase().getKnowledgeBase()}
 ${new RecipeKnowledgeBase().getKnowledgeBase()}
 ${new AlternativesKnowledgeBase().getKnowledgeBase()}
-
 retractRecipe(X) :- retract(recipe(X, Y, Z)), recipe(X, Y, Z).
-
-    `, {
+`;
+    this._session.consult(this._knowledgeBase, {
       success: () => console.log('successfully loaded program'),
       error: (err) => console.log(err)
     });
@@ -54,6 +53,10 @@ retractRecipe(X) :- retract(recipe(X, Y, Z)), recipe(X, Y, Z).
 
   format(answer: any): any {
     return this._session.format_answer(answer);
+  }
+
+  get knowledgeBase(): string {
+    return this._knowledgeBase;
   }
 
   private getAnswer(list, done): any {

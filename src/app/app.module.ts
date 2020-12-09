@@ -18,6 +18,8 @@ import { IngredientCardComponent } from './ingredient-list/ingredient-card/ingre
 import { IngredientFormComponent } from './ingredient-list/ingredient-form/ingredient-form.component';
 import { RecipeFormComponent } from './recipe-list/recipe-form/recipe-form.component';
 import { IngredientSelectorComponent } from './ingredient-selector/ingredient-selector.component';
+import { KnowledgeBaseComponent } from './knowledge-base/knowledge-base.component';
+import {NewlinePipe} from './newline/newline.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { IngredientSelectorComponent } from './ingredient-selector/ingredient-se
     IngredientCardComponent,
     IngredientFormComponent,
     RecipeFormComponent,
-    IngredientSelectorComponent
+    IngredientSelectorComponent,
+    KnowledgeBaseComponent,
+    NewlinePipe
   ],
   imports: [
     BrowserModule,
